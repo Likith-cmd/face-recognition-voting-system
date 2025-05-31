@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Register Candidate{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h2 class="text-center text-primary mb-4">Register Candidate</h2>
+        <form method="POST" action="{{ url_for('register_candidate') }}">
+            <div class="mb-3">
+                <label for="candidate_id" class="form-label">Candidate ID</label>
+                <input type="text" class="form-control" id="candidate_id" name="candidate_id" required>
+            </div>
+            <div class="mb-3">
+                <label for="candidate_name" class="form-label">Candidate Name</label>
+                <input type="text" class="form-control" id="candidate_name" name="candidate_name" required>
+            </div>
+            <div class="mb-3">
+                <label for="party" class="form-label">Political Party</label>
+                <input type="text" class="form-control" id="party" name="party" required>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Register Candidate</button>
+            </div>
+        </form>
+        <div class="text-center mt-3">
+            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

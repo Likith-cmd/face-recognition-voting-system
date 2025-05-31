@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, Admin</h1>
+
+        <h2>Voter Statistics</h2>
+        <ul>
+            <li>Total Voters Registered: {{ stats.total_voters }}</li>
+            <li>Total Votes Cast: {{ stats.total_votes }}</li>
+            <li>Total Voters Yet to Vote: {{ stats.remaining_voters }}</li>
+        </ul>
+
+        <h2>Live Voting Results</h2>
+        <table border="1">
+            <tr>
+                <th>Candidate</th>
+                <th>Vote Count</th>
+            </tr>
+            {% for vote in results %}
+            <tr>
+                <td>{{ vote.name }}</td>
+                <td>{{ vote.vote_count }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</body>
+</html>

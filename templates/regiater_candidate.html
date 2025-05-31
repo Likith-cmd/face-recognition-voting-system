@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Register Candidate{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Candidate Registration</h2>
+    <form method="POST" action="/register_candidate" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="name" class="form-label">Candidate Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="party" class="form-label">Political Party</label>
+            <input type="text" class="form-control" id="party" name="party" required>
+        </div>
+        <div class="mb-3">
+            <label for="photo" class="form-label">Upload Candidate Photo</label>
+            <input type="file" class="form-control" id="photo" name="photo" accept="image/*" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Register Candidate</button>
+    </form>
+</div>
+{% endblock %}

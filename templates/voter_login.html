@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h2>Voter Login</h2>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="alert alert-warning">{{ messages[0] }}</div>
+    {% endif %}
+  {% endwith %}
+  <form action="{{ url_for('vote_page') }}" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="voter_id" class="form-label">Voter ID</label>
+      <input type="text" class="form-control" id="voter_id" name="voter_id" required>
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">Upload Face Image</label>
+      <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Login & Vote</button>
+  </form>
+</div>
+{% endblock %}

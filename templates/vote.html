@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h2>Vote</h2>
+  <p>Welcome, {{ name }}!</p>
+  <p>Your Voter ID: <strong>{{ voter_id }}</strong></p>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="alert alert-info">{{ messages[0] }}</div>
+    {% endif %}
+  {% endwith %}
+  <form method="POST">
+    <div class="mb-3">
+      <label for="candidate" class="form-label">Select Candidate:</label>
+      <select name="candidate" class="form-select" required>
+        <option value="">-- Choose a candidate --</option>
+        <option value="Candidate A">Candidate A</option>
+        <option value="Candidate B">Candidate B</option>
+        <option value="Candidate C">Candidate C</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success">Submit Vote</button>
+  </form>
+</div>
+{% endblock %}
