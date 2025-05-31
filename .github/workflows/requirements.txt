@@ -1,0 +1,5 @@
+flask
+pytest
+face_recognition
+imageio
+pillow
